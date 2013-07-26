@@ -12,7 +12,7 @@ use std::path::Path;
 
 use extra::json;
 
-pub fn update(counts:HashMap<~str, float>) {
+pub fn update(today:~str, counts:HashMap<~str, float>) {
     let daily_counts_path = &Path("data/daily_counts.json");
     // Read in JSON file
     let mut old_counts:~HashMap<~str, json::Json> = match file_reader(daily_counts_path) {
@@ -29,7 +29,8 @@ pub fn update(counts:HashMap<~str, float>) {
     };
 
     // Update counts
-    old_counts.insert(~"2013-07-26", jsonify(counts));
+    old_counts.insert(today, jsonify(counts));
+
     // Write out JSON file
     match buffered_file_writer(daily_counts_path) {
         Ok(fwriter) => {

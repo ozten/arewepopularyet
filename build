@@ -3,6 +3,7 @@ rm -Rf lib/lib*dylib*;
 rustc lib/link_header.rs
 rustc lib/secrets.rs
 rustc lib/storage.rs
+rustc lib/today.rs
 rustc -L var/lib/rust-http-client \
       -L lib                      \
       lib/search.rs

@@ -31,7 +31,7 @@ fn main() {
     counts.insert(~"idproviders",
         search("navigator.id.beginProvisioning or navigator.id.genKeyPair"));
 
-    storage::update(counts);
+    storage::update(~"2013-07-26", counts);
 
 
 }
