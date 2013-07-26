@@ -1,15 +1,33 @@
 
-
-/* curl -G -v https://api.github.com/search/code --data-urlencode "q=language:javascript jquery"  -H "Accept: application/vnd.github.preview" */
+extern mod extra;
+extern mod std;
 
 extern mod search;
+
+use std::hashmap::HashMap;
+
+use extra::timer::sleep;
+use extra::uv;
 
 use search::search;
 
 fn main() {
-    // "websites"
-    search("navigator.id.get OR navigator.id.request");
+    // We can make up to 20 requests per minute.
+    // Sleeping for 3100 Should work...
 
-    //search("idproviders",
-    //       "navigator.id.beginProvisioning or navigator.id.genKeyPair");
+    let mut counts:HashMap<~str, float> = HashMap::new();
+
+
+    counts.insert(~"baseline",
+        search("function"));
+    sleep(&uv::global_loop::get(), 3100);
+
+    counts.insert(~"websites",
+        search("navigator.id.get OR navigator.id.request"));
+    sleep(&uv::global_loop::get(), 3100);
+
+
+    counts.insert(~"idproviders",
+        search("navigator.id.beginProvisioning or navigator.id.genKeyPair"));
+    sleep(&uv::global_loop::get(), 3100);
 }

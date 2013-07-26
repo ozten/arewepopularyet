@@ -14,3 +14,6 @@ See [searches.json](etc/searches.json).
 * append search category and total numbers into .JSON file
 * make a directory for today's run
 * Take rate-limiting into account and eventually get all the data
+* use conf.json
+* total_count should be an int, not a float
+* implement Basic Auth (currently using client_id and client_secret)

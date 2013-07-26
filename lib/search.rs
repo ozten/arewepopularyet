@@ -5,6 +5,7 @@ extern mod extra;
 extern mod http_client;
 
 extern mod link_header;
+extern mod secrets;
 
 use std::hashmap::HashMap;
 use std::io::buffered_file_writer;
@@ -20,11 +21,13 @@ use extra::timer::sleep;
 use extra::uv;
 
 use http_client::uv_http_request;
+use secrets::qs;
 
 pub struct RepoResponse {
     rawJson: ~[~str],
     inLinkField: bool,
-    file: @std::io::Writer:'static
+    file: @std::io::Writer:'static,
+    total_count: float
 }
 
 fn readJson(json: json::Json) -> float {
@@ -44,9 +47,10 @@ fn readJson(json: json::Json) -> float {
     }
 }
 
-fn search(query:&str) {
+fn search(query:&str) -> float {
     let search_url = "http://localhost:8002/search/code?q=" +
-            query.replace(" ", "%20");
+            query.replace(" ", "%20") +
+            secrets::qs();
 
     println("SEARCH running ");
     /* search/code?q=navigator.id.get%20OR%20navigator.id.request */
@@ -65,7 +69,9 @@ fn search(query:&str) {
             Ok(file) => file,
             Err(_) => fail!("Unable to open /tmp/foo")
     };
-    let res = @mut RepoResponse{rawJson: ~[], inLinkField: false, file: f};
+    let res = @mut RepoResponse{
+        rawJson: ~[], inLinkField: false,
+        file: f, total_count: -1.0};
 
     let mut request = uv_http_request(u, options);
 
@@ -82,8 +88,8 @@ fn search(query:&str) {
                     // TODO I don't need to parse Json here, actually...
                     match json::from_str(res.rawJson.concat()) {
                         Ok(json) => {
-                            readJson(json);
                             res.file.flush();
+                            res.total_count = readJson(json);
                         }
                         Err(e) => {
                             println(fmt!("Error parsing JSON %?", e));
@@ -128,9 +134,5 @@ fn search(query:&str) {
             }
         }
     }
-
-
-        debug!("Sleeping for a second to respect rate limiting");
-        // TODO measure time passed and wait the difference...
-        sleep(&uv::global_loop::get(), 1000);
+    res.total_count
 }
