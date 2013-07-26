@@ -3,6 +3,7 @@ extern mod extra;
 extern mod std;
 
 extern mod search;
+extern mod storage;
 
 use std::hashmap::HashMap;
 
@@ -10,6 +11,7 @@ use extra::timer::sleep;
 use extra::uv;
 
 use search::search;
+use storage::*;
 
 fn main() {
     // We can make up to 20 requests per minute.
@@ -26,8 +28,10 @@ fn main() {
         search("navigator.id.get OR navigator.id.request"));
     sleep(&uv::global_loop::get(), 3100);
 
-
     counts.insert(~"idproviders",
         search("navigator.id.beginProvisioning or navigator.id.genKeyPair"));
-    sleep(&uv::global_loop::get(), 3100);
+
+    storage::update(counts);
+
+
 }
