@@ -1,0 +1,13 @@
+lib/secrets.rs
+bin
+data
+*.dylib*
+*.o
+*.a
+*.so
+*.dummy
+Makefile
+.dotcloud
+.DS_Store
+*~
+#*#
