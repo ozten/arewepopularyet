@@ -1,0 +1,10 @@
+mkdir -p bin
+rm -Rf lib/lib*dylib*;
+rustc lib/link_header.rs
+rustc lib/secrets.rs
+rustc -L var/lib/rust-http-client \
+      -L lib                      \
+      lib/search.rs
+rustc --out-dir bin               \
+      -L var/lib/rust-http-client \
+      -L lib src/arewepopular.rs
