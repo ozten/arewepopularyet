@@ -4,6 +4,7 @@ extern mod std;
 
 extern mod search;
 extern mod storage;
+extern mod today;
 
 use std::hashmap::HashMap;
 
@@ -12,6 +13,7 @@ use extra::uv;
 
 use search::search;
 use storage::*;
+use today::*;
 
 fn main() {
     // We can make up to 20 requests per minute.
@@ -31,7 +33,7 @@ fn main() {
     counts.insert(~"idproviders",
         search("navigator.id.beginProvisioning or navigator.id.genKeyPair"));
 
-    storage::update(~"2013-07-26", counts);
+    storage::update(today(), counts);
 
 
 }

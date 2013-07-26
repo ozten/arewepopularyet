@@ -6,6 +6,7 @@ extern mod http_client;
 
 extern mod link_header;
 extern mod secrets;
+extern mod today;
 
 use std::hashmap::HashMap;
 use std::io::buffered_file_writer;
@@ -22,6 +23,7 @@ use extra::uv;
 
 use http_client::uv_http_request;
 use secrets::qs;
+use today::*;
 
 pub struct RepoResponse {
     rawJson: ~[~str],
@@ -64,11 +66,16 @@ fn search(query:&str) -> float {
     options.insert(~"Accept", ~"application/vnd.github.preview");
 
     let qpath:~str = query.replace(" ", "_");
+
+    // To hedge our bets, let's save the results to a file.
+
     let f = match buffered_file_writer(&Path(
-                "data/" + qpath + ".json")) {
+                "data/" + today() + "/" + qpath + ".json")) {
             Ok(file) => file,
-            Err(_) => fail!("Unable to open /tmp/foo")
+            Err(_) => fail!("Unable to open " + "data/" + today() + "/" + qpath + ".json")
     };
+
+
     let res = @mut RepoResponse{
         rawJson: ~[], inLinkField: false,
         file: f, total_count: -1.0};

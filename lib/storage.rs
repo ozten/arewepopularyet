@@ -13,7 +13,7 @@ use std::path::Path;
 use extra::json;
 
 pub fn update(today:~str, counts:HashMap<~str, float>) {
-    let daily_counts_path = &Path("data/daily_counts.json");
+    let daily_counts_path = &Path("www/data/daily_counts.json");
     // Read in JSON file
     let mut old_counts:~HashMap<~str, json::Json> = match file_reader(daily_counts_path) {
         Ok(dc) => {
@@ -25,7 +25,7 @@ pub fn update(today:~str, counts:HashMap<~str, float>) {
                 _ => fail!("Issues parsing JSON")
             }
         },
-        _ => fail!("Unable to read data/daily_counts.json")
+        _ => fail!("Unable to read www/data/daily_counts.json")
     };
 
     // Update counts
@@ -36,7 +36,7 @@ pub fn update(today:~str, counts:HashMap<~str, float>) {
         Ok(fwriter) => {
             json::to_pretty_writer(fwriter, &json::Object(old_counts));
         },
-        _ => fail!("Unable to write to data/daily_counts.json")
+        _ => fail!("Unable to write to www/data/daily_counts.json")
     }
 }
 
