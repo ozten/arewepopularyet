@@ -1,0 +1,8 @@
+{
+	"searches": {
+		"websites": "navigator.id.get OR navigator.id.request",
+	},
+		"idproviders": "navigator.id.beginProvisioning or navigator.id.genKeyPair"
+
+
+}

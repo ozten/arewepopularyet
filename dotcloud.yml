@@ -1,0 +1,6 @@
+www:
+  type: static
+
+  systempackages:
+    - sqlite3
+    - libsqlite3-dev
