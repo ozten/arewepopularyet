@@ -23,7 +23,8 @@ use http_client::uv_http_request;
 
 pub struct RepoResponse {
     rawJson: ~[~str],
-    inLinkField: bool
+    inLinkField: bool,
+    file: @std::io::Writer:'static
 }
 
 fn readJson(json: json::Json) {
@@ -58,17 +59,17 @@ fn search(query:&str) {
     // Opt into preview APIs application/vnd.github.preview
     options.insert(~"Accept", ~"application/vnd.github.preview");
 
-    let res = @mut RepoResponse{rawJson: ~[], inLinkField: false};
-
     let qpath:~str = query.replace(" ", "_");
-
-    let mut request = uv_http_request(u, options);
-    do request.begin |event| {
-        let f = match buffered_file_writer(&Path(
+    let f = match buffered_file_writer(&Path(
                 "data/" + qpath + ".json")) {
             Ok(file) => file,
             Err(_) => fail!("Unable to open /tmp/foo")
-        };
+    };
+    let res = @mut RepoResponse{rawJson: ~[], inLinkField: false, file: f};
+
+    let mut request = uv_http_request(u, options);
+
+    do request.begin |event| {
         match event {
             http_client::Error(e) => {
                 println(fmt!("Ouch... error %?", e));
@@ -82,7 +83,7 @@ fn search(query:&str) {
                     match json::from_str(res.rawJson.concat()) {
                         Ok(json) => {
                             readJson(json);
-                            f.flush();
+                            res.file.flush();
                         }
                         Err(e) => {
                             println(fmt!("Error parsing JSON %?", e));
@@ -121,7 +122,8 @@ fn search(query:&str) {
             http_client::Payload(p) => {
                 let data = p.take();
                 res.rawJson.push(str::from_bytes(data.clone()));
-                f.write_line(str::from_bytes(data.clone()));
+                debug!(res.file);
+                res.file.write_line(str::from_bytes(data.clone()));
                 println("wrote some payload");
             }
         }
