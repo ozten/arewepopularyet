@@ -10,3 +10,7 @@ Several searches are performed daily against github's code search API.
 
 See [searches.json](etc/searches.json).
 
+## TODOs
+* append search category and total numbers into .JSON file
+* make a directory for today's run
+* Take rate-limiting into account and eventually get all the data

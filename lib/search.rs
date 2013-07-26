@@ -27,19 +27,19 @@ pub struct RepoResponse {
     file: @std::io::Writer:'static
 }
 
-fn readJson(json: json::Json) {
+fn readJson(json: json::Json) -> float {
     match json {
-        json::List(l) => {
-            //println(fmt!("Got %? items", l.len()));
-            //for l.consume_iter().advance |repo| {
-            for l.iter().advance |repo| {
-                //println(fmt!("repo=%?\n\n", repo));
-
+        json::Object(o) => {
+            println(fmt!("total count: %?", o.get(&~"total_count")));
+            match copy *o.get(&~"total_count") {
+                Number(n) => n,
+                _ => fail!("Expected top level property total_count")
             }
             //println("A list of Objects, perhaps")
         }
         _ => {
             //println("ERROR: Unrecognized JSON format")
+            fail!("Expected Object at top level of JSON");
         }
     }
 }

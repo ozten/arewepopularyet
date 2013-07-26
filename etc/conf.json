@@ -1,6 +1,7 @@
 {
 	"searches": {
-		"websites": "navigator.id.get OR navigator.id.request",
+        "baseline": "function",
+        "websites": "navigator.id.get OR navigator.id.request OR browserid",
 	},
 		"idproviders": "navigator.id.beginProvisioning or navigator.id.genKeyPair"
 
