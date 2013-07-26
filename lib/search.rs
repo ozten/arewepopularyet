@@ -12,12 +12,12 @@ extern mod today;
 
 use std::hashmap::HashMap;
 use std::io::buffered_file_writer;
+use std::libc::{S_IRUSR, S_IWUSR, S_IXUSR};
 use std::os::mkdir_recursive;
 use std::path::Path;
 use std::str;
 use std::result::{Ok, Err};
 
-// use libc::consts::os::posix88::{S_IRUSR, S_IWUSR, S_IXUSR};
 
 use extra::json;
 use extra::json::{Object, List, String, Number};
@@ -29,8 +29,6 @@ use extra::uv;
 use http_client::uv_http_request;
 use secrets::qs;
 use today::*;
-
-static rwx_r__r__:i32 = 511;
 
 pub struct RepoResponse {
     rawJson: ~[~str],
@@ -75,8 +73,8 @@ fn search(query:&str) -> float {
     let qpath:~str = query.replace(" ", "_");
 
     // To hedge our bets, let's save the results to a file.
-    // (S_IRUSR | S_IWUSR | S_IXUSR) as i32
-    mkdir_recursive(&Path("data/" + today()), rwx_r__r__);
+    mkdir_recursive(&Path("data/" + today()),
+            (S_IRUSR | S_IWUSR | S_IXUSR) as i32);
     let f = match buffered_file_writer(&Path(
                 "data/" + today() + "/" + qpath + ".json")) {
             Ok(file) => file,
