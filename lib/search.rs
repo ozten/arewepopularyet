@@ -40,32 +40,26 @@ pub struct RepoResponse {
 fn readJson(json: json::Json) -> float {
     match json {
         json::Object(o) => {
-            println(fmt!("total count: %?", o.get(&~"total_count")));
             match copy *o.get(&~"total_count") {
                 Number(n) => n,
                 _ => fail!("Expected top level property total_count")
             }
-            //println("A list of Objects, perhaps")
         }
-        _ => {
-            //println("ERROR: Unrecognized JSON format")
-            fail!("Expected Object at top level of JSON");
-        }
+        _ => fail!("Expected Object at top level of JSON")
     }
 }
 
 fn search(query:&str) -> float {
+    // Use a Node.js proxy server, since rust-http-client can't do https
     let search_url = "http://localhost:8002/search/code?q=" +
             query.replace(" ", "%20") +
             secrets::qs();
 
-    println("SEARCH running ");
-    /* search/code?q=navigator.id.get%20OR%20navigator.id.request */
     let u: Url = url::from_str(search_url).get();
-    println(fmt!("%?", u));
     debug!(u);
 
     let mut options:HashMap<~str, ~str> = HashMap::new();
+    // Github thing... use your app name
     options.insert(~"User-Agent", ~"ozten");
     // Opt into preview APIs application/vnd.github.preview
     options.insert(~"Accept", ~"application/vnd.github.preview");
@@ -81,10 +75,10 @@ fn search(query:&str) -> float {
             Err(_) => fail!("Unable to open " + "data/" + today() + "/" + qpath + ".json")
     };
 
-
     let res = @mut RepoResponse{
         rawJson: ~[], inLinkField: false,
-        file: f, total_count: -1.0};
+        file: f, total_count: -1.0
+    };
 
     let mut request = uv_http_request(u, options);
 
@@ -92,13 +86,11 @@ fn search(query:&str) -> float {
         match event {
             http_client::Error(e) => {
                 println(fmt!("Ouch... error %?", e));
+                fail!("http error");
             },
             http_client::Status(s) => match s {
-                // TODO wait... how did I break how match works here
-                // I should need the pattern guard.
                 StatusOK if s == StatusOK => {
                     debug!(fmt!("Status %?", s));
-                    // TODO I don't need to parse Json here, actually...
                     match json::from_str(res.rawJson.concat()) {
                         Ok(json) => {
                             res.file.flush();
@@ -113,16 +105,13 @@ fn search(query:&str) -> float {
                 StatusFound if s == StatusFound => {
                     debug!(fmt!("UNEXPECTED: Redirected? %?", s));
                 }
-                StatusUnknown => {
-                    fail!("No JSON of Repositiories");
-                }
+                StatusUnknown => fail!("No JSON of Repositiories")
             },
             http_client::HeaderField(field) => {
                 let hField = str::from_bytes(field.take());
                 match hField {
                     ~"link" | ~"Link" => {
                         res.inLinkField = true;
-                        println("We found link");
                     },
                     _ => ()
                 }
@@ -133,17 +122,12 @@ fn search(query:&str) -> float {
                     let hValue = str::from_bytes(field.take());
                     println("Queing up next page from ");
                     let link:@~str = link_header::parse(hValue);
-                    //println(*link.replace("api.github.com", "localhost:8002"));
-                    // TODO add this to incoming next url
-
                 }
             },
             http_client::Payload(p) => {
                 let data = p.take();
                 res.rawJson.push(str::from_bytes(data.clone()));
-                debug!(res.file);
                 res.file.write_line(str::from_bytes(data.clone()));
-                println("wrote some payload");
             }
         }
     }
