@@ -1,7 +1,12 @@
 {
-  "2013-07-26": {
-    "idproviders": 79,
+  "2013-07-27": {
     "websites": 1053,
-    "baseline": 159438816
+    "idproviders": 79,
+    "baseline": 159640659
+  },
+  "2013-07-26": {
+    "baseline": 159438816,
+    "idproviders": 79,
+    "websites": 1053
   }
 }
