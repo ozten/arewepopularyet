@@ -1,0 +1,15 @@
+{
+  "name": "https_proxy",
+  "version": "0.0.0",
+  "description": "A https proxy for rust code",
+  "main": "proxy.js",
+  "scripts": {
+    "test": "nodeunit test/*.js"
+  },
+  "repository": "",
+  "author": "",
+  "dependencies": {
+    "http-proxy": "0.10.3"
+  },
+  "license": "BSD"
+}
