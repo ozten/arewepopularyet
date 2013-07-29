@@ -64,7 +64,7 @@ fn search(query:&str) -> float {
     // Opt into preview APIs application/vnd.github.preview
     options.insert(~"Accept", ~"application/vnd.github.preview");
 
-    let qpath:~str = query.replace(" ", "_");
+    let qpath:~str = query.replace(" ", "_").replace(".", "_").replace("/", "_");
 
     // To hedge our bets, let's save the results to a file.
     mkdir_recursive(&Path("data/" + today()),

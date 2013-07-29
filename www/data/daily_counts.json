@@ -1,5 +1,11 @@
 {
-:  "2013-07-28": {
+  "2013-07-29": {
+    "facebook": 34759,
+    "idproviders": 79,
+    "websites": 1055,
+    "baseline": 160102342
+  },
+  "2013-07-28": {
     "baseline": 159854689,
     "idproviders": 79,
     "websites": 1056
