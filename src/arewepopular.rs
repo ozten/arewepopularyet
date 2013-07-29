@@ -33,6 +33,9 @@ fn main() {
     counts.insert(~"idproviders",
         search("navigator.id.beginProvisioning or navigator.id.genKeyPair"));
 
+    counts.insert(~"facebook",
+        search("//connect.facebook.net/en_US/all.js"));
+
     storage::update(today(), counts);
 
 
