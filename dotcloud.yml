@@ -1,5 +1,6 @@
 www:
   type: static
+  approot: www
 
   systempackages:
     - sqlite3
