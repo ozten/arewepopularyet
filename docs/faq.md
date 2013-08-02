@@ -30,4 +30,4 @@ The **baseline** is for repos who's source code uses `function` which is a prett
 
 # Isn't that flawed?
 
-[Yes, notes here](./methodology.md). [Please improve this methodology](https://github.com/ozten/arewepopularyet/issues)
+[Yes, notes here](./methodology.md). Please [help improve this methodology](https://github.com/ozten/arewepopularyet/issues)
