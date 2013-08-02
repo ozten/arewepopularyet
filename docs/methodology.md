@@ -24,3 +24,7 @@ The following are reasons why Source code search engines are imperfect
 The following are known issues with our search terms:
 
 * We miss projects that use a library that provides Persona support, such as OmniAuth or Passport
+
+## Interesting data points
+
+* Drupal projects stats! [Persona](https://drupal.org/project/usage/persona) versus [FB Connect](https://drupal.org/project/usage/fbconnect), [FB Like](https://drupal.org/project/usage/fblikebutton), [FB Social plugins](https://drupal.org/project/usage/fb_social) and [many more](https://drupal.org/project/usage)
