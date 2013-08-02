@@ -1,0 +1,69 @@
+/* Structure */
+/*
+  body {
+    font-size: 16pt;
+  }
+*/
+.answer {
+    /* set via JS:
+      font-size: 10em;
+      margin-top: 100px;
+    */
+    font-weight: 900;
+    text-align: center;
+}
+
+
+.facts, .figures {
+  padding: 0em;
+  display: inline-block;
+  width: 100%;
+  margin-top: 20px;
+  min-height: 250px;
+}
+@media (min-width: 600px) {
+  .facts, .figures {
+    width: 49%;
+    float: left;
+  }
+}
+.facts > *, .figures > * {
+    margin: auto 20px;
+}
+footer {
+  clear: both;
+  text-align: center;
+}
+footer ul {
+  display: inline;
+}
+footer ul {
+  display:inline-block;
+  padding: 10px;
+}
+footer ul li {
+  float: left;
+  margin-right: 20px;
+}
+
+h2 {
+    margin-top: 0px;
+}
+
+.factor-label {
+  display: inline-block;
+  float:left;
+  clear: left;
+  min-width: 220px;
+}
+.facts .factor {
+    float: left;
+    font-weight: 900;
+    padding-left: 5px;
+}
+
+/* Style */
+footer, footer a, footer a:visited {
+  color: #CCC;
+  font-weight: 800;
+}
