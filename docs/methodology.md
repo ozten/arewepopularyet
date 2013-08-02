@@ -27,4 +27,4 @@ The following are known issues with our search terms:
 
 ## Interesting data points
 
-* Drupal projects stats! [Persona](https://drupal.org/project/usage/persona) versus [FB Connect](https://drupal.org/project/usage/fbconnect), [FB Like](https://drupal.org/project/usage/fblikebutton), [FB Social plugins](https://drupal.org/project/usage/fb_social) and [many more](https://drupal.org/project/usage)
+* Drupal projects stats! [Persona](https://drupal.org/project/usage/persona) and [BrowserID](https://drupal.org/project/usage/browserid) versus [FB Connect](https://drupal.org/project/usage/fbconnect), [FB Like](https://drupal.org/project/usage/fblikebutton), [FB Social plugins](https://drupal.org/project/usage/fb_social) and [many more](https://drupal.org/project/usage)
