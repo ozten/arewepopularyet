@@ -23,9 +23,9 @@ $(window).bind('resize', function(e) {
   layoutAndStyle();
 });
 
-console.log('calling getJSON');
+
 $.getJSON('/data/daily_counts.json', function(data, status, jqxhr) {
-console.log(JSON.stringify(data));
+
     var keys = Object.keys(data);
     var dates = [];
     for(var i=0; i < keys.length; i++) {
@@ -36,25 +36,24 @@ console.log(JSON.stringify(data));
 
     var dataPoints = [[],[],[], []];
     for (var i=0; i < dates.length; i++) {
-        console.log(new Date(dates[i]).toString());
+
         var d = new Date(dates[i]);
         var key = d.getUTCFullYear() + '-' +
                   (d.getUTCMonth() < 11 ? '0' : '') +
                  (d.getUTCMonth() + 1) + '-' +
                  (d.getUTCDate() < 10 ? '0' : '') +
                   d.getUTCDate();
-        console.log('KEY=', key);
+
 
         var metrics = ['websites', 'idproviders', 'facebook', 'baseline'];
         for (var j=0; j < metrics.length; j++) {
-            console.log(key);
+
             if (!data[key] ||
                 ! data[key][metrics[j]]) {
-                console.log('Skipping', key, data[key]);
-                console.log('or Skipping', metrics[j]);
+
                 continue;
             }
-            console.log(i, metrics[j], data[key][metrics[j]]);
+
             //dataPoints[j].push([1001545200000 - d.getTime(), data[key][metrics[j]]]);
 
             dataPoints[j].push([i, data[key][metrics[j]]]);
@@ -66,12 +65,10 @@ console.log(JSON.stringify(data));
 
 //1375142400000,79],[1374969600000000,79],[1375056000000000,79],[1374796800000000,79],[1375228800000000,79],[1375315200000000,79]]"
     //373597200000
-    console.log(JSON.stringify(dataPoints[1]));
-
-    console.log('da shit', dates);
 
 
-    console.log(typeof data, data);
+
+
     var d1 = [];
     for (var i = 0; i < 14; i += 0.5) {
         d1.push([i, Math.sin(i)]);

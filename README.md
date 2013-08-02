@@ -33,6 +33,7 @@ metadata around the search, for future use. This gets periodically
 slurped down to a backup and deleted. This is outside of this codebase.
 
 ## TODOs
+* Seperate github project #s from the Adoption Factor
 * make a directory for today's run and put full search results in there
 * Take rate-limiting into account and eventually get all the data
   * Follow Link and get all results
