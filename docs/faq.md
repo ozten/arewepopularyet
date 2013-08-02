@@ -2,7 +2,9 @@
 
 # How is the Adoption Factor calculated?
 
-It is the number of new projects that have adopted a project, divided by the number of new github projects which could probably use that feature.
+It is the number of new github projects that have adopted a technology, divided by the number of new github projects which could probably adopt that technology.
+
+Basically, projects that adopted Persona versus total number of projects that use JavaScript added to Github.
 
 The number of projects, since the last time we measured, to be more precise.
 

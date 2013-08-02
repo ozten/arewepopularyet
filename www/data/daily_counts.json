@@ -1,38 +1,41 @@
 {
+  "2013-07-29": {
+    "idproviders": 79,
+    "facebook": 34759,
+    "baseline": 160102342,
+    "websites": 1055
+  },
   "2013-08-01": {
-    "baseline": 160997541,
+    "websites": 1057,
+    "baseline": 160960629,
+    "facebook": 34823,
+    "idproviders": 79
+  },
+  "2013-07-30": {
+    "facebook": 34790,
+    "baseline": 160372695,
     "idproviders": 79,
     "websites": 1055
   },
   "2013-07-31": {
-    "baseline": 160692535,
+    "baseline": 160680583,
+    "idproviders": 79,
     "websites": 1057,
-    "idproviders": 79
+    "facebook": 34807
   },
   "2013-07-28": {
     "baseline": 159854689,
     "websites": 1056,
     "idproviders": 79
   },
-  "2013-07-30": {
-    "websites": 1056,
-    "baseline": 160430807,
+  "2013-07-26": {
+    "websites": 1053,
+    "baseline": 159438816,
     "idproviders": 79
   },
   "2013-07-27": {
-    "idproviders": 79,
     "websites": 1053,
-    "baseline": 159640659
-  },
-  "2013-07-26": {
-    "baseline": 159438816,
-    "websites": 1053,
-    "idproviders": 79
-  },
-  "2013-07-29": {
-    "websites": 1055,
     "idproviders": 79,
-    "facebook": 34759,
-    "baseline": 160102342
+    "baseline": 159641133
   }
 }
