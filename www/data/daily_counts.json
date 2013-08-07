@@ -1,56 +1,71 @@
 {
   "2013-07-27": {
-    "idproviders": 79,
+    "websites": 1053,
     "baseline": 159641133,
-    "websites": 1053
-  },
-  "2013-07-28": {
-    "websites": 1056,
-    "baseline": 159854689,
     "idproviders": 79
   },
-  "2013-08-02": {
-    "websites": 1064,
-    "baseline": 161275461,
+  "2013-07-28": {
+    "idproviders": 79,
+    "baseline": 159854689,
+    "websites": 1056
+  },
+  "2013-07-31": {
+    "idproviders": 79,
+    "baseline": 160680583,
+    "facebook": 34807,
+    "websites": 1057
+  },
+  "2013-08-07": {
+    "websites": 1073,
+    "baseline": 162723602,
     "idproviders": 82
   },
   "2013-07-30": {
-    "baseline": 160372695,
+    "facebook": 34790,
     "idproviders": 79,
-    "websites": 1055,
-    "facebook": 34790
+    "baseline": 160372695,
+    "websites": 1055
+  },
+  "2013-07-26": {
+    "websites": 1053,
+    "baseline": 159438816,
+    "idproviders": 79
   },
   "2013-08-04": {
     "websites": 1068,
     "idproviders": 82,
     "baseline": 161737610
   },
-  "2013-08-01": {
-    "baseline": 160960629,
-    "facebook": 34823,
-    "idproviders": 79,
-    "websites": 1057
-  },
-  "2013-07-31": {
-    "idproviders": 79,
-    "facebook": 34807,
-    "baseline": 160680583,
-    "websites": 1057
-  },
-  "2013-07-26": {
-    "idproviders": 79,
-    "websites": 1053,
-    "baseline": 159438816
-  },
-  "2013-08-03": {
-    "websites": 1065,
-    "idproviders": 82,
-    "baseline": 161568232
-  },
   "2013-07-29": {
-    "baseline": 160102342,
     "idproviders": 79,
     "websites": 1055,
-    "facebook": 34759
+    "facebook": 34759,
+    "baseline": 160102342
+  },
+  "2013-08-03": {
+    "idproviders": 82,
+    "baseline": 161568232,
+    "websites": 1065
+  },
+  "2013-08-05": {
+    "websites": 1071,
+    "idproviders": 82,
+    "baseline": 162054172
+  },
+  "2013-08-06": {
+    "idproviders": 82,
+    "websites": 1073,
+    "baseline": 162410611
+  },
+  "2013-08-01": {
+    "websites": 1057,
+    "baseline": 160960629,
+    "idproviders": 79,
+    "facebook": 34823
+  },
+  "2013-08-02": {
+    "baseline": 161275461,
+    "websites": 1064,
+    "idproviders": 82
   }
 }
