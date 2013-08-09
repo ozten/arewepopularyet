@@ -46,5 +46,6 @@ fn jsonify(counts:HashMap<~str, float>) -> json::Json {
     wrapped.insert(~"baseline", json::Number(copy *counts.get(&~"baseline")));
     wrapped.insert(~"websites", json::Number(copy *counts.get(&~"websites")));
     wrapped.insert(~"idproviders", json::Number(copy *counts.get(&~"idproviders")));
+    wrapped.insert(~"facebook", json::Number(copy *counts.get(&~"facebook")));
     json::Object(wrapped)
 }
