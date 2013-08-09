@@ -35,16 +35,53 @@ pub struct RepoResponse {
     inLinkField: bool,
     next_link: ~str,
     file: @std::io::Writer:'static,
-    total_count: float
+    total_count: float,
+    repos: ~[~str]
 }
 
-fn readJson(json: json::Json) -> float {
+fn readJson(json: json::Json) -> (float, ~[~str]) {
     match json {
         json::Object(o) => {
-            match copy *o.get(&~"total_count") {
+            let count = match copy *o.get(&~"total_count") {
                 Number(n) => n,
                 _ => fail!("Expected top level property total_count")
-            }
+            };
+            println("Analizng items");
+            let repos = match copy *o.get(&~"items") {
+                List(repos_l) => {
+                    let mut r:~[~str] = ~[];
+                    for repos_l.iter().advance |repo| {
+                        match copy *repo {
+                            json::Object(repoo) => {
+                                match copy *repoo.get(&~"repository") {
+
+                                    json::Object(repooo) => {
+
+
+
+
+                                        match copy *repooo.get(&~"full_name") {
+
+                                            String(ref repo_s) => {
+                                                println(fmt!("Copying %?", repo_s));
+                                                r.push(repo_s.clone())
+                                            },
+                                            _ => fail!("full_name wasn't a string")
+                                        }
+                                    },
+                                    _ => fail!("repository missing")
+                                }
+
+
+                            },
+                           _ => fail!("item wasn't an Object")
+                        }
+                    }
+                    r
+                },
+                _ => fail!("Expected top level property items")
+            };
+            (count, repos)
         }
         _ => fail!("Expected Object at top level of JSON")
     }
@@ -79,7 +116,8 @@ fn search(query:&str) -> (float, ~[~str], ~str) {
 
     let res = @mut RepoResponse{
         rawJson: ~[], inLinkField: false,
-        file: f, total_count: -1.0, next_link: ~""
+        file: f, total_count: -1.0, next_link: ~"",
+        repos: ~[]
     };
 
     let mut request = uv_http_request(u, options);
@@ -96,7 +134,9 @@ fn search(query:&str) -> (float, ~[~str], ~str) {
                     match json::from_str(res.rawJson.concat()) {
                         Ok(json) => {
                             res.file.flush();
-                            res.total_count = readJson(json);
+                            let (tc, repos) = readJson(json);
+                            res.total_count = tc;
+                            res.repos = repos;
                             debug!("RES.TOTS=%?", res.total_count);
                         }
                         Err(e) => {
@@ -134,5 +174,5 @@ fn search(query:&str) -> (float, ~[~str], ~str) {
         }
     }
     // TODO parse out project names from search results
-    (res.total_count, ~[], res.next_link.clone())
+    (res.total_count, copy res.repos, res.next_link.clone())
 }

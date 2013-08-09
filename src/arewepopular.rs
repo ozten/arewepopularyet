@@ -31,16 +31,20 @@ fn main() {
     let web_repos:~[~str] = ~[];
 
     let idp_repos:~[~str] = ~[];
-
+/*
     analize(~"baseline",
             "function", counts);
     sleep(&uv::global_loop::get(), 3100);
+*/
 
     let (web_next_link, web_repos) =
         analize(~"websites",
                 "navigator.id.get OR navigator.id.request", counts);
     sleep(&uv::global_loop::get(), 3100);
 
+    debug!("next link is %s and we've already got %?", web_next_link, web_repos);
+
+/*
     let (idp_next_link, idp_repos) =
         analize(~"idproviders",
                 "navigator.id.beginProvisioning or navigator.id.genKeyPair", counts);
@@ -49,9 +53,6 @@ fn main() {
     analize(~"facebook",
             "//connect.facebook.net/en_US/all.js", counts);
 
-    for counts.iter().advance() |d| {
-        debug!("%?", d);
-    }
-
     storage::update(today(), counts);
+    */
 }
