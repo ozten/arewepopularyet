@@ -7,6 +7,7 @@ extern mod storage;
 extern mod today;
 
 use std::hashmap::HashMap;
+use std::hashmap::HashSet;
 
 use extra::timer::sleep;
 use extra::uv;
@@ -37,6 +38,9 @@ fn main() {
     sleep(&uv::global_loop::get(), 3100);
 */
 
+
+
+
     let (web_next_link, web_repos1) =
         analize(~"websites",
             //navigator.id.get OR navigator.id.request
@@ -48,6 +52,8 @@ fn main() {
     debug!("next link is %s and we've already got %?", web_next_link, web_repos1);
     web_repos.push_all_move(web_repos1);
     sleep(&uv::global_loop::get(), 3100);
+
+
 
 /*
     let (idp_next_link, idp_repos) =
@@ -64,10 +70,11 @@ fn main() {
     // Adopters and Defectors
     /*
     1) Load yesterday's repo list
+*/
+    let yesterday_websites = load_repositories(~"websites");
+
+/*
     2) Iterate all of our results
-    3) Compare yesterday with today
-    4) Capture Adopters and Defectors
-    5) Store lists
     */
     let mut web_next_link2 = web_next_link;
 
@@ -88,4 +95,29 @@ fn main() {
         println("Finished paginating results");
         debug!(web_repos);
     }
+    let mut today_results = HashSet::new();
+    for web_repos.iter().advance |r| {
+        today_results.insert(r.clone());
+    }
+
+    debug!("DiFFING");
+    yesterday_websites.difference(&today_results, |diff| {
+        debug!("DIFFERENCE yesterday_websites %?", diff);
+        true
+    });
+
+    debug!("DiFFING");
+    today_results.difference(&yesterday_websites, |diff| {
+        debug!("DIFFERENCE today_results %?", diff);
+        true
+    });
+/*
+    3) Compare yesterday with today
+    4) Capture Adopters and Defectors
+*/
+
+/*
+    5) Store lists
+*/
+    //save_repositories(~"websites", web_repos);
 }
