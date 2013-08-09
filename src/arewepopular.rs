@@ -15,28 +15,43 @@ use search::search;
 use storage::*;
 use today::*;
 
+fn analize(search_type:~str, term:&str, counts:@mut HashMap<~str, float>) -> (~str, ~[~str]) {
+    let (count, repos, next_link) = search(term);
+    debug!("putting %? = %?", search_type, count);
+    counts.insert(search_type, count);
+    println(next_link);
+    (next_link, repos)
+}
+
 fn main() {
     // We can make up to 20 requests per minute.
     // Sleeping for 3100 Should work...
 
-    let mut counts:HashMap<~str, float> = HashMap::new();
+    let counts:@mut HashMap<~str, float> = @mut HashMap::new();
+    let web_repos:~[~str] = ~[];
 
+    let idp_repos:~[~str] = ~[];
 
-    counts.insert(~"baseline",
-        search("function"));
+    analize(~"baseline",
+            "function", counts);
     sleep(&uv::global_loop::get(), 3100);
 
-    counts.insert(~"websites",
-        search("navigator.id.get OR navigator.id.request"));
+    let (web_next_link, web_repos) =
+        analize(~"websites",
+                "navigator.id.get OR navigator.id.request", counts);
     sleep(&uv::global_loop::get(), 3100);
 
-    counts.insert(~"idproviders",
-        search("navigator.id.beginProvisioning or navigator.id.genKeyPair"));
+    let (idp_next_link, idp_repos) =
+        analize(~"idproviders",
+                "navigator.id.beginProvisioning or navigator.id.genKeyPair", counts);
+    sleep(&uv::global_loop::get(), 3100);
 
-    counts.insert(~"facebook",
-        search("//connect.facebook.net/en_US/all.js"));
+    analize(~"facebook",
+            "//connect.facebook.net/en_US/all.js", counts);
+
+    for counts.iter().advance() |d| {
+        debug!("%?", d);
+    }
 
     storage::update(today(), counts);
-
-
 }

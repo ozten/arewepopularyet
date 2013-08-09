@@ -33,6 +33,7 @@ use today::*;
 pub struct RepoResponse {
     rawJson: ~[~str],
     inLinkField: bool,
+    next_link: ~str,
     file: @std::io::Writer:'static,
     total_count: float
 }
@@ -49,7 +50,8 @@ fn readJson(json: json::Json) -> float {
     }
 }
 
-fn search(query:&str) -> float {
+//TODO add types here
+fn search(query:&str) -> (float, ~[~str], ~str) {
     // Use a Node.js proxy server, since rust-http-client can't do https
     let search_url = "http://localhost:8002/search/code?q=" +
             query.replace(" ", "%20") +
@@ -77,7 +79,7 @@ fn search(query:&str) -> float {
 
     let res = @mut RepoResponse{
         rawJson: ~[], inLinkField: false,
-        file: f, total_count: -1.0
+        file: f, total_count: -1.0, next_link: ~""
     };
 
     let mut request = uv_http_request(u, options);
@@ -95,6 +97,7 @@ fn search(query:&str) -> float {
                         Ok(json) => {
                             res.file.flush();
                             res.total_count = readJson(json);
+                            debug!("RES.TOTS=%?", res.total_count);
                         }
                         Err(e) => {
                             println(fmt!("Error parsing JSON %?", e));
@@ -120,8 +123,7 @@ fn search(query:&str) -> float {
                 if (res.inLinkField) {
                     res.inLinkField = false;
                     let hValue = str::from_bytes(field.take());
-                    println("Queing up next page from ");
-                    let link:@~str = link_header::parse(hValue);
+                    res.next_link = link_header::parse(hValue);
                 }
             },
             http_client::Payload(p) => {
@@ -131,5 +133,6 @@ fn search(query:&str) -> float {
             }
         }
     }
-    res.total_count
+    // TODO parse out project names from search results
+    (res.total_count, ~[], res.next_link.clone())
 }

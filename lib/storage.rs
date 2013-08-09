@@ -12,7 +12,7 @@ use std::path::Path;
 
 use extra::json;
 
-pub fn update(today:~str, counts:HashMap<~str, float>) {
+pub fn update(today:~str, counts:@mut HashMap<~str, float>) {
     let daily_counts_path = &Path("www/data/daily_counts.json");
     // Read in JSON file
     let mut old_counts:~HashMap<~str, json::Json> = match file_reader(daily_counts_path) {
@@ -40,12 +40,13 @@ pub fn update(today:~str, counts:HashMap<~str, float>) {
     }
 }
 
-fn jsonify(counts:HashMap<~str, float>) -> json::Json {
+fn jsonify(counts:@mut HashMap<~str, float>) -> json::Json {
     let mut wrapped:~HashMap<~str, json::Json> = ~HashMap::new();
-    // TODO make this dynamic, iterate through the keys
-    wrapped.insert(~"baseline", json::Number(copy *counts.get(&~"baseline")));
-    wrapped.insert(~"websites", json::Number(copy *counts.get(&~"websites")));
-    wrapped.insert(~"idproviders", json::Number(copy *counts.get(&~"idproviders")));
-    wrapped.insert(~"facebook", json::Number(copy *counts.get(&~"facebook")));
+    for counts.iter().advance() |pair| {
+        let (key, value) = pair;
+        debug!(key);
+        wrapped.insert(copy *key, json::Number(copy *value));
+    }
+
     json::Object(wrapped)
 }
