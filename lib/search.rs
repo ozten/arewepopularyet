@@ -39,6 +39,26 @@ pub struct RepoResponse {
     repos: ~[~str]
 }
 
+fn full_name(repo: &json::Json) -> ~str {
+    match copy *repo {
+        json::Object(repoo) => {
+            match copy *repoo.get(&~"repository") {
+                json::Object(repooo) => {
+                    match copy *repooo.get(&~"full_name") {
+                        String(ref repo_s) => {
+                            println(fmt!("Copying %?", repo_s));
+                            repo_s.clone()
+                        },
+                        _ => fail!("full_name wasn't a string")
+                    }
+                },
+                _ => fail!("repository missing")
+            }
+        },
+       _ => fail!("item wasn't an Object")
+    }
+}
+
 fn readJson(json: json::Json) -> (float, ~[~str]) {
     match json {
         json::Object(o) => {
@@ -51,31 +71,8 @@ fn readJson(json: json::Json) -> (float, ~[~str]) {
                 List(repos_l) => {
                     let mut r:~[~str] = ~[];
                     for repos_l.iter().advance |repo| {
-                        match copy *repo {
-                            json::Object(repoo) => {
-                                match copy *repoo.get(&~"repository") {
 
-                                    json::Object(repooo) => {
-
-
-
-
-                                        match copy *repooo.get(&~"full_name") {
-
-                                            String(ref repo_s) => {
-                                                println(fmt!("Copying %?", repo_s));
-                                                r.push(repo_s.clone())
-                                            },
-                                            _ => fail!("full_name wasn't a string")
-                                        }
-                                    },
-                                    _ => fail!("repository missing")
-                                }
-
-
-                            },
-                           _ => fail!("item wasn't an Object")
-                        }
+                        r.push(full_name(repo))
                     }
                     r
                 },
@@ -93,7 +90,9 @@ fn search(query:&str) -> (float, ~[~str], ~str) {
     let search_url = "http://localhost:8002/search/code?q=" +
             query.replace(" ", "%20") +
             secrets::qs();
-
+    get_search(search_url)
+}
+fn get_search(search_url:&str) -> (float, ~[~str], ~str) {
     let u: Url = url::from_str(search_url).get();
     debug!(u);
 
@@ -103,7 +102,7 @@ fn search(query:&str) -> (float, ~[~str], ~str) {
     // Opt into preview APIs application/vnd.github.preview
     options.insert(~"Accept", ~"application/vnd.github.preview");
 
-    let qpath:~str = query.replace(" ", "_").replace(".", "_").replace("/", "_");
+    let qpath:~str = search_url.replace(" ", "_").replace(".", "_").replace("/", "_").replace(":", "_").replace("?", "_");
 
     // To hedge our bets, let's save the results to a file.
     mkdir_recursive(&Path("data/" + today()),
@@ -163,7 +162,10 @@ fn search(query:&str) -> (float, ~[~str], ~str) {
                 if (res.inLinkField) {
                     res.inLinkField = false;
                     let hValue = str::from_bytes(field.take());
-                    res.next_link = link_header::parse(hValue);
+                    if hValue.contains(&"rel=\"next\"") {
+                        res.next_link = link_header::parse(hValue);
+                    }
+
                 }
             },
             http_client::Payload(p) => {
