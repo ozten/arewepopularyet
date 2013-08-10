@@ -100,21 +100,28 @@ fn main() {
         today_results.insert(r.clone());
     }
 
-    debug!("DiFFING");
-    yesterday_websites.difference(&today_results, |diff| {
-        debug!("DIFFERENCE yesterday_websites %?", diff);
-        true
-    });
 
-    debug!("DiFFING");
-    today_results.difference(&yesterday_websites, |diff| {
-        debug!("DIFFERENCE today_results %?", diff);
+    let mut notable:@mut HashMap<~str, ~HashMap<~str, ~[~str]>> = @mut HashMap::new();
+    let mut notable_websites:~HashMap<~str, ~[~str]> = ~HashMap::new();
+    let mut new_websites = ~[];
+    yesterday_websites.difference(&today_results, |diff| {
+        debug!("Adopters yesterday_websites %?", diff);
+        new_websites.push(diff.clone());
         true
     });
-/*
-    3) Compare yesterday with today
-    4) Capture Adopters and Defectors
-*/
+    notable_websites.insert(~"adopters", new_websites);
+
+    let mut missing_websites = ~[];
+    today_results.difference(&yesterday_websites, |diff| {
+        debug!("Defectors today_results %?", diff);
+        missing_websites.push(diff.clone());
+        true
+    });
+    notable_websites.insert(~"defectors", missing_websites);
+
+    notable.insert(~"websites", notable_websites);
+    storage::update_notable(today(), notable);
+
 
 /*
     5) Store lists

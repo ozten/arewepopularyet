@@ -13,6 +13,11 @@ use std::path::Path;
 
 use extra::json;
 
+pub fn update_notable(today:~str, counts:@mut HashMap<~str, ~HashMap<~str, ~[~str]>>) {
+    let daily_counts_path = &Path("www/data/daily_changes.json");
+    // TODO copy in update style changes
+}
+
 pub fn update(today:~str, counts:@mut HashMap<~str, float>) {
     let daily_counts_path = &Path("www/data/daily_counts.json");
     // Read in JSON file
