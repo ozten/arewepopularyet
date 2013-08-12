@@ -1,0 +1,42 @@
+{
+  "2013-08-11": {
+    "websites": {
+      "adopters": [
+        "maedayx/swapshire2",
+        "wastevens/DReader",
+        "downthemall/website",
+        "yourcelf/intertwinkles",
+        "scslab/lbh",
+        "articlemetrics/alm",
+        "bwinton/Testing",
+        "denschub/devise_browserid_authenticatable",
+        "shantanusharma/kent",
+        "ozten/ball-of-wax",
+        "shanselman/AspNetPersonaId",
+        "sch1zo/minimalistic-fitness-tracker",
+        "HackerEarth/django-allauth"
+      ],
+      "defectors": [
+        "gcmurphy/go-persona",
+        "openpolis/open_municipio",
+        "meatspaces/parallax",
+        "shane-tomlinson/browserid-wordpress",
+        "skiffhack/skiffin",
+        "mozilla/parapara",
+        "grimwire/local",
+        "jkronz/Freader",
+        "lbredeso/crashfinder",
+        "simonwex/popcornbrowser",
+        "mghayes/blog",
+        "IOC/mahara",
+        "piyushbansal/yhack13",
+        "t2t2/draft",
+        "wikilife-org/datadonor"
+      ]
+    },
+    "idps": {
+      "adopters": [],
+      "defectors": []
+    }
+  }
+}

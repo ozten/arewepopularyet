@@ -57,15 +57,15 @@ fn main() {
     storage::update(today(), counts);
 
     // Adopters and Defectors
-    /*
-    1) Load yesterday's repo list
-*/
-    let yesterday_websites = load_repositories(~"websites");
-    let yesterday_idps = load_repositories(~"websites");
 
-/*
-    2) Iterate all of our website results
-    */
+    //1) Load yesterday's repo list
+
+    let yesterday_websites = load_repositories(~"websites");
+    let yesterday_idps = load_repositories(~"idps");
+
+
+    //2) Iterate all of our website results
+
     let mut web_next_link2 = web_next_link;
     if (web_next_link2.len() != 0) {
         loop {
@@ -84,8 +84,10 @@ fn main() {
     for web_repos.iter().advance |r| {
         today_web_results.insert(r.clone());
     }
+
     let mut notable:@mut HashMap<~str, ~HashMap<~str, ~[~str]>> = @mut HashMap::new();
     let mut notable_websites:~HashMap<~str, ~[~str]> = ~HashMap::new();
+
     let mut new_websites = ~[];
     yesterday_websites.difference(&today_web_results, |diff| {
         debug!("Adopters yesterday_websites %?", diff);
@@ -103,7 +105,9 @@ fn main() {
     notable_websites.insert(~"defectors", missing_websites);
 
     notable.insert(~"websites", notable_websites);
-
+    println("Getting early");
+    notable.get(&~"websites");
+    println("Finished Getting early");
     //2) Iterate all of our idp results
 //aok
     let mut idp_next_link2 = idp_next_link;
@@ -123,8 +127,9 @@ fn main() {
     for idp_repos.iter().advance |r| {
         today_idp_results.insert(r.clone());
     }
-    let mut notable:@mut HashMap<~str, ~HashMap<~str, ~[~str]>> = @mut HashMap::new();
+
     let mut notable_idps:~HashMap<~str, ~[~str]> = ~HashMap::new();
+
     let mut new_idps = ~[];
     yesterday_idps.difference(&today_idp_results, |diff| {
         debug!("Adopters yesterday_idps %?", diff);
@@ -141,9 +146,36 @@ fn main() {
     });
     notable_idps.insert(~"defectors", missing_idps);
 
-    notable.insert(~"ipds", notable_idps);
-    //aok
+    notable.insert(~"idps", notable_idps);
+
+
+/*
+// AOK
+    let mut fake_adopters = ~[~"foo", ~"bar", ~"baz"];
+    notable_websites.insert(~"adopters", fake_adopters);
+    let mut fake_defectors = ~[~"foo", ~"bar", ~"baz"];
+    notable_websites.insert(~"defectors", fake_defectors);
+
+    notable.insert(~"websites", notable_websites);
+
+    let mut fake_iadopters = ~[~"idfoo", ~"idbar", ~"udbaz"];
+    notable_idps.insert(~"adopters", fake_iadopters);
+    let mut fake_idefectors = ~[~"idfoo", ~"idbar", ~"idbaz"];
+    notable_idps.insert(~"defectors", fake_idefectors);
+
+    notable.insert(~"idps", notable_idps);
+
+    println("INserted IdPs");
+    //END AOK
+    */
+
+    println("Getting b4");
+    notable.get(&~"websites");
+    println("Finished b4");
+
+    println("INserted websites and IdPs");
     storage::update_notable(today(), notable);
+    println("SAVING repositories");
 
 
 /*

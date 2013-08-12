@@ -33,11 +33,7 @@ metadata around the search, for future use. This gets periodically
 slurped down to a backup and deleted. This is outside of this codebase.
 
 ## TODOs
-* Adopters / Abandoneers
-    * Iterate through search results
-    * Store Repos in a Set
-    * Load previous set of repos
-    * Diff
+* Show Adopters / Abandoneers
 * Seperate github project #s from the Adoption Factor
 * Take rate-limiting into account and eventually get all the data
   * Follow Link and get all results
