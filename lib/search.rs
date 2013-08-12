@@ -2,8 +2,6 @@
 
 extern mod extra;
 
-// extern mod libc;
-
 extern mod http_client;
 
 extern mod link_header;
@@ -18,7 +16,6 @@ use std::path::Path;
 use std::str;
 use std::result::{Ok, Err};
 
-
 use extra::json;
 use extra::json::{Object, List, String, Number};
 use extra::net::url::Url;
@@ -27,7 +24,7 @@ use extra::timer::sleep;
 use extra::uv;
 
 use http_client::uv_http_request;
-use secrets::qs;
+
 use today::*;
 
 pub struct RepoResponse {
@@ -39,12 +36,12 @@ pub struct RepoResponse {
     repos: ~[~str]
 }
 
-fn full_name(repo: &json::Json) -> ~str {
-    match copy *repo {
-        json::Object(repoo) => {
-            match copy *repoo.get(&~"repository") {
-                json::Object(repooo) => {
-                    match copy *repooo.get(&~"full_name") {
+fn full_name(a_repo: &json::Json) -> ~str {
+    match copy *a_repo {
+        json::Object(repo_item) => {
+            match copy *repo_item.get(&~"repository") {
+                json::Object(repo) => {
+                    match copy *repo.get(&~"full_name") {
                         String(ref repo_s) => {
                             println(fmt!("Copying %?", repo_s));
                             repo_s.clone()
@@ -84,7 +81,6 @@ fn readJson(json: json::Json) -> (float, ~[~str]) {
     }
 }
 
-//TODO add types here
 fn search(query:&str) -> (float, ~[~str], ~str) {
     // Use a Node.js proxy server, since rust-http-client can't do https
     let search_url = "http://localhost:8002/search/code?q=" +
@@ -92,6 +88,7 @@ fn search(query:&str) -> (float, ~[~str], ~str) {
             secrets::qs();
     get_search(search_url)
 }
+
 fn get_search(search_url:&str) -> (float, ~[~str], ~str) {
     let u: Url = url::from_str(search_url).get();
     debug!(u);
@@ -175,6 +172,6 @@ fn get_search(search_url:&str) -> (float, ~[~str], ~str) {
             }
         }
     }
-    // TODO parse out project names from search results
+
     (res.total_count, copy res.repos, res.next_link.clone())
 }
