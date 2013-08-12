@@ -26,17 +26,31 @@
         <div class="facts">
             <h2>Adoption Factor</h2>
             <div class="website"><span class="factor-label">Persona <img src="/i/persona.png" /></span>
-                 <span class="factor">4</span></div>
+                 <span class="factor">loading</span></div>
             <div class="facebook"><span class="factor-label">FB Connect <img src="/i/fb.png" /></span>
-                <span class="factor">41</span></div>
+                <span class="factor">loading</span></div>
+
+            <p class="adoption-factor caption">Adoption Factor is the number of new projects using a technology divided by the number of new repositories (<span id="new-repos">loading</span>) multiplied by a scaling factor (<span id="scaling-factor">loading</span>).
             <!-- div class="baseline"><span class="factor-label">Github Projects <img src="/i/github.png" /></span>
                 <span class="factor">4,100</span></div -->
         </div>
         <div class="figures">
             <h3>Websites using Persona</h3>
             <div class="websites"></div>
+            <p class="caption">Y axis is the number of github repos using Persona sign in.</p>
+
+            <h3>IdPs using Persona</h3>
+            <div class="idps"></div>
+            <p class="caption">Y axis is the number of github repos implementing Persona based Identity.</p>
+
             <h3>Websites using Facebook Connect</h3>
             <div class="facebook"></div>
+            <p class="caption">Y axis is the number of github repos using FB Connect.</p>
+
+            <h3>Baseline Github growth</h3>
+            <div class="baseline"></div>
+            <p class="caption">Y axis is the number of new github repos using web technologies.</p>
+
         </div>
         <footer>
             <nav>
@@ -53,6 +67,7 @@
         <script>window.jQuery || document.write('<script src="/js/jquery-1.10.2.min.js"><\/script>')</script>
         <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="/js/excanvas.min.js"></script><![endif]-->
         <script src="/js/jquery.flot.min.js"></script>
+        <script src="/js/jquery.flot.time.min.js"></script>
         <script src="/js/arewepopularyet.js"></script>
     </body>
 </html>
