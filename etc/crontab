@@ -1,4 +1,0 @@
-# m h  dom mon dow   command
-00 16 * * * RUST_LOG=search=4,http_client=4,search=4,link_header=4,std=4 /home/dotcloud/code/bin/arewepopular > /home/dotcloud/code/var/log 2>&1
-10 16 * * * /bin/bash /home/dotcloud/data/meanpath/meanpath.sh 2>&1
-30 9 * * * /home/ozten/Projects/arewepopularyet/bin/backup.sh
