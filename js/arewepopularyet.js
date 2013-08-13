@@ -27,7 +27,7 @@ $(window).bind('resize', function(e) {
 });
 
 
-$.getJSON('/data/daily_counts.json', function(data, status, jqxhr) {
+$.getJSON('data/daily_counts.json', function(data, status, jqxhr) {
 
     var keys = Object.keys(data);
     var dates = [];
