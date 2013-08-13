@@ -88,7 +88,7 @@ $.getJSON('/data/daily_counts.json', function(data, status, jqxhr) {
       data:dataPoints[2]
     }], plotOpts);
 
-        $.plot('.figures .baseline', [{
+    $.plot('.figures .baseline', [{
       mode: "time",
       timeformat: "%Y/%m/%d",
       data:dataPoints[3]
