@@ -41,13 +41,13 @@ fn main() {
         analize(~"websites",
             // Testing 1 page Gigantopithecus AND blacki
             // Testing 3 pages Gigantopithecus AND bigfoot
-                "navigator.id.get OR navigator.id.request", counts);
+                "\"navigator.id.get\" OR \"navigator.id.request\"", counts);
     web_repos.push_all_move(web_repos1);
     sleep(&uv::global_loop::get(), 3100);
 
     let (idp_next_link, idp_repos1) =
         analize(~"idproviders",
-                "navigator.id.beginProvisioning or navigator.id.genKeyPair", counts);
+                "\"navigator.id.beginProvisioning\" OR \"navigator.id.genKeyPair\"", counts);
     idp_repos.push_all_move(idp_repos1);
     sleep(&uv::global_loop::get(), 3100);
 
