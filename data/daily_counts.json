@@ -23,6 +23,12 @@
     "idproviders": 82,
     "facebook": 34896
   },
+  "2013-08-14": {
+    "websites": 1090,
+    "facebook": 37408,
+    "baseline": 164320348,
+    "idproviders": 115
+  },
   "2013-08-10": {
     "baseline": 163471341,
     "idproviders": 84,
