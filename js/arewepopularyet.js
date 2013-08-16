@@ -36,7 +36,7 @@ $.getJSON('data/daily_counts.json', function(data, status, jqxhr) {
         var key = keys[i];
         dates.push(Date.parse(key));
     }
-    dates = Array.sort(dates).slice(0 - NUM_DAYS_PLOT);
+    dates = dates.sort().slice(0 - NUM_DAYS_PLOT);
 
     var dataPoints = [[],[],[], []];
     for (var i=0; i < dates.length; i++) {
@@ -117,7 +117,7 @@ $.getJSON('data/daily_counts.json', function(data, status, jqxhr) {
 $.getJSON('data/daily_repositories.json', function(data, status, jqxhr) {
   var keys = Object.keys(data);
   console.log(keys.join(','));
-  Array.sort(keys);
+  keys.sort();
   console.log(keys.join(','));
   var today = keys[keys.length -1];
   $('.today').text(today);
@@ -149,3 +149,4 @@ $.getJSON('data/daily_repositories.json', function(data, status, jqxhr) {
   });
   $('.idps .defectors ul').append(liHtml);
 });
+
