@@ -65,6 +65,10 @@ h2 {
   height: 200px;
 }
 
+.repository-panel h3, .repository-panel .date-picker { float: left; }
+.date-picker { display: inline-block; margin: 1.1em;}
+.adopters { clear: left; }
+
 /* Style */
 body {
   line-height: 1.5;
@@ -76,3 +80,4 @@ footer, footer a, footer a:visited {
 
 .caption { clear: left; }
 .adoption-factor { margin-top: 150px;}
+

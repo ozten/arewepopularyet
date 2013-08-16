@@ -18,6 +18,7 @@ function layoutAndStyle() {
   $('body').css({'font-size': bodySize + 'em'});
   $('.answer').css({'font-size': answerSize + 'em',
                    'margin-top': Math.round(h/15) + 'px'});
+  $('.caption').css({'font-size': bodySize * 0.7 + 'em'});
 }
 
 layoutAndStyle();
@@ -110,4 +111,41 @@ $.getJSON('data/daily_counts.json', function(data, status, jqxhr) {
         baselineCount));
     $('.facts .baseline .factor').text(baselineCount);
 
+});
+
+
+$.getJSON('data/daily_repositories.json', function(data, status, jqxhr) {
+  var keys = Object.keys(data);
+  console.log(keys.join(','));
+  Array.sort(keys);
+  console.log(keys.join(','));
+  var today = keys[keys.length -1];
+  $('.today').text(today);
+  // TODO provide paginated access
+  $('.yesterday, .tomorrow').hide();
+  var liHtml = "";
+  $(data[today].websites.adopters).each(function(i, repo){
+    console.log(repo);
+    liHtml += '<li><a href="https://github.com/' + repo + '">' + repo + '</a></li>';
+  });
+  $('.websites .adopters ul').append(liHtml);
+
+  var liHtml = "";
+  $(data[today].websites.defectors).each(function(i, repo){
+    liHtml += '<li><a href="https://github.com/' + repo + '">' + repo + '</a></li>';
+  });
+  $('.websites .defectors ul').append(liHtml);
+
+  var liHtml = "";
+  $(data[today].idps.adopters).each(function(i, repo){
+    console.log(repo);
+    liHtml += '<li><a href="https://github.com/' + repo + '">' + repo + '</a></li>';
+  });
+  $('.idps .adopters ul').append(liHtml);
+
+    var liHtml = "";
+  $(data[today].idps.defectors).each(function(i, repo){
+    liHtml += '<li><a href="https://github.com/' + repo + '">' + repo + '</a></li>';
+  });
+  $('.idps .defectors ul').append(liHtml);
 });
