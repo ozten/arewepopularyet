@@ -10,6 +10,13 @@ Several searches are performed daily against github's code search API.
 
 See [searches.json](etc/searches.json).
 
+## Current behavior
+1) Get first page of results for various search terms, update daily_counts.json
+2) Retrieve all search results for websites and idps, record all repo names
+3) Load yesterday's repos and diff against today's list
+4) Update list of adopters and defectors
+5) For both websites and idps, overwrite the list of known repos with today's list
+
 ## Deployment
 
 Project is deployed on dotcloud and has the following layout...
@@ -34,9 +41,9 @@ slurped down to a backup and deleted. This is outside of this codebase.
 
 ## TODOs
 * Show Adopters / Abandoneers
-* Seperate github project #s from the Adoption Factor
-* Take rate-limiting into account and eventually get all the data
-  * Follow Link and get all results
+* Robust cron jobs and redundant deployment / backup
 * use conf.json
 * total_count should be an int, not a float
 * implement Basic Auth (currently using client_id and client_secret)
+* Break .json files up by month and have UI be able to access across months
+* Tighten up Rust code
