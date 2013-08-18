@@ -2469,5 +2469,45 @@
                 "yourcelf/intertwinkles"
             ]
         }
+    },
+    "2013-08-18": {
+        "idps": {
+            "adopters": [],
+            "defectors": []
+        },
+        "websites": {
+            "adopters": [
+                "TZM/tzm-blade",
+                "clindsay107/noprogress",
+                "cutalion/SetupMeetup",
+                "ednapiranha/lexicrypt",
+                "grimwire/local",
+                "hyperkitty/hyperkitty",
+                "kete/kete_browserid",
+                "kumar303/bazuga",
+                "lbredeso/crashfinder",
+                "mozilla/commonplace",
+                "mozillahispano/mozilla-hispano.org",
+                "sarveshgpt1991/mysite",
+                "sebilasse/OpenBadgesAjax",
+                "thebuggenie/thebuggenie",
+                "torhve/Nyfyk",
+                "web64/ci64"
+            ],
+            "defectors": [
+                "Liuweifan888/HYTEditor",
+                "PeerGaming/peergaming",
+                "SubDC/ISS",
+                "TazeTSchnitzel/hugbook",
+                "adambrenecki/giki",
+                "askyourgovt/askyourgovt",
+                "jacobian/djobs",
+                "libravatar/libravatar",
+                "lzrski/flatiron-persona",
+                "meatspaces/parallax",
+                "sbauch/vndiscourse",
+                "syst3mw0rm/hyperkitty"
+            ]
+        }
     }
 }
