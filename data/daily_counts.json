@@ -1,146 +1,152 @@
 {
-  "2013-08-08": {
-    "websites": 1079,
-    "baseline": 163074998,
-    "facebook": 34990,
-    "idproviders": 84
-  },
-  "2013-08-11": {
-    "idproviders": 89,
-    "websites": 1089,
-    "baseline": 163696469,
-    "facebook": 37346
-  },
-  "2013-08-06": {
-    "websites": 1073,
-    "idproviders": 82,
-    "facebook": 34929,
-    "baseline": 162410611
-  },
-  "2013-07-31": {
-    "facebook": 34807,
-    "baseline": 160680583,
-    "websites": 1057,
-    "idproviders": 79
-  },
-  "2013-08-03": {
-    "baseline": 161568232,
-    "facebook": 34852,
-    "websites": 1065,
-    "idproviders": 82
-  },
-  "2013-07-27": {
-    "baseline": 159641133,
-    "facebook": 34759,
-    "websites": 1053,
-    "idproviders": 79
-  },
-  "2013-08-02": {
-    "facebook": 34823,
-    "idproviders": 82,
-    "websites": 1064,
-    "baseline": 161275461
-  },
-  "2013-08-07": {
-    "baseline": 162723602,
-    "websites": 1073,
-    "facebook": 34947,
-    "idproviders": 82
-  },
-  "2013-08-13": {
-    "websites": 1492,
-    "facebook": 188448,
-    "idproviders": 106,
-    "baseline": 169452365
-  },
-  "2013-08-16": {
-    "facebook": 37711,
-    "baseline": 164964629,
-    "idproviders": 116,
-    "websites": 1096
-  },
-  "2013-07-30": {
-    "baseline": 160372695,
-    "facebook": 34790,
-    "websites": 1055,
-    "idproviders": 79
-  },
-  "2013-08-15": {
-    "baseline": 164815793,
-    "facebook": 37686,
-    "websites": 1090,
-    "idproviders": 114
-  },
-  "2013-08-04": {
-    "idproviders": 82,
-    "facebook": 34882,
-    "websites": 1068,
-    "baseline": 161737610
-  },
-  "2013-08-10": {
-    "idproviders": 84,
-    "baseline": 163471341,
-    "facebook": 37320,
-    "websites": 1078
-  },
-  "2013-08-05": {
-    "facebook": 34896,
-    "idproviders": 82,
-    "websites": 1071,
-    "baseline": 162054172
-  },
-  "2013-08-19": {
-    "idproviders": 116,
-    "baseline": 165708198,
-    "websites": 1107,
-    "facebook": 74463
-  },
-  "2013-07-26": {
-    "websites": 1053,
-    "idproviders": 79,
-    "facebook": 34759,
-    "baseline": 159438816
-  },
-  "2013-08-14": {
-    "baseline": 164320348,
-    "idproviders": 115,
-    "websites": 1090,
-    "facebook": 37408
-  },
-  "2013-07-29": {
-    "idproviders": 79,
-    "baseline": 160102342,
-    "facebook": 34759,
-    "websites": 1055
-  },
-  "2013-08-01": {
-    "baseline": 160960629,
-    "idproviders": 79,
-    "facebook": 34823,
-    "websites": 1057
-  },
-  "2013-08-09": {
-    "websites": 1079,
-    "baseline": 163342470,
-    "facebook": 37306,
-    "idproviders": 84
-  },
-  "2013-07-28": {
-    "baseline": 159854689,
-    "idproviders": 79,
-    "facebook": 34759,
-    "websites": 1056
-  },
-  "2013-08-17": {
-    "baseline": 165262250,
-    "facebook": 74404,
-    "idproviders": 116,
-    "websites": 1104
-  },
-  "2013-08-18": {
-    "idproviders": 116,
-    "baseline": 165418533,
-    "websites": 1105,
-    "facebook": 74399
-  }
+    "2013-07-26": {
+        "baseline": 159438816,
+        "facebook": 34759,
+        "idproviders": 79,
+        "websites": 1053
+    },
+    "2013-07-27": {
+        "baseline": 159641133,
+        "facebook": 34759,
+        "idproviders": 79,
+        "websites": 1053
+    },
+    "2013-07-28": {
+        "baseline": 159854689,
+        "facebook": 34759,
+        "idproviders": 79,
+        "websites": 1056
+    },
+    "2013-07-29": {
+        "baseline": 160102342,
+        "facebook": 34759,
+        "idproviders": 79,
+        "websites": 1055
+    },
+    "2013-07-30": {
+        "baseline": 160372695,
+        "facebook": 34790,
+        "idproviders": 79,
+        "websites": 1055
+    },
+    "2013-07-31": {
+        "baseline": 160680583,
+        "facebook": 34807,
+        "idproviders": 79,
+        "websites": 1057
+    },
+    "2013-08-01": {
+        "baseline": 160960629,
+        "facebook": 34823,
+        "idproviders": 79,
+        "websites": 1057
+    },
+    "2013-08-02": {
+        "baseline": 161275461,
+        "facebook": 34823,
+        "idproviders": 82,
+        "websites": 1064
+    },
+    "2013-08-03": {
+        "baseline": 161568232,
+        "facebook": 34852,
+        "idproviders": 82,
+        "websites": 1065
+    },
+    "2013-08-04": {
+        "baseline": 161737610,
+        "facebook": 34882,
+        "idproviders": 82,
+        "websites": 1068
+    },
+    "2013-08-05": {
+        "baseline": 162054172,
+        "facebook": 34896,
+        "idproviders": 82,
+        "websites": 1071
+    },
+    "2013-08-06": {
+        "baseline": 162410611,
+        "facebook": 34929,
+        "idproviders": 82,
+        "websites": 1073
+    },
+    "2013-08-07": {
+        "baseline": 162723602,
+        "facebook": 34947,
+        "idproviders": 82,
+        "websites": 1073
+    },
+    "2013-08-08": {
+        "baseline": 163074998,
+        "facebook": 34990,
+        "idproviders": 84,
+        "websites": 1079
+    },
+    "2013-08-09": {
+        "baseline": 163342470,
+        "facebook": 37306,
+        "idproviders": 84,
+        "websites": 1079
+    },
+    "2013-08-10": {
+        "baseline": 163471341,
+        "facebook": 37320,
+        "idproviders": 84,
+        "websites": 1078
+    },
+    "2013-08-11": {
+        "baseline": 163696469,
+        "facebook": 37346,
+        "idproviders": 89,
+        "websites": 1089
+    },
+    "2013-08-13": {
+        "baseline": 169452365,
+        "facebook": 188448,
+        "idproviders": 106,
+        "websites": 1492
+    },
+    "2013-08-14": {
+        "baseline": 164320348,
+        "facebook": 37408,
+        "idproviders": 115,
+        "websites": 1090
+    },
+    "2013-08-15": {
+        "baseline": 164815793,
+        "facebook": 37686,
+        "idproviders": 114,
+        "websites": 1090
+    },
+    "2013-08-16": {
+        "baseline": 164964629,
+        "facebook": 37711,
+        "idproviders": 116,
+        "websites": 1096
+    },
+    "2013-08-17": {
+        "baseline": 165262250,
+        "facebook": 74404,
+        "idproviders": 116,
+        "websites": 1104
+    },
+    "2013-08-18": {
+        "baseline": 165418533,
+        "facebook": 74399,
+        "idproviders": 116,
+        "websites": 1105
+    },
+    "2013-08-19": {
+        "baseline": 165708198,
+        "facebook": 74463,
+        "idproviders": 116,
+        "websites": 1107
+    },
+    "2013-08-20": {
+        "baseline": 165877305,
+        "facebook": 74506,
+        "idproviders": 117,
+        "websites": 1112
+    }
 }
