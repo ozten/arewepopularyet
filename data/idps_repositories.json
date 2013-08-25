@@ -41,8 +41,8 @@
     "neonux/mozilla-all",
     "ehsan/test-cvs-mc",
     "tijuca/icedove",
-    "bitwiseworks/mozilla-os2",
     "mozilla/integration-mozilla-inbound",
+    "bitwiseworks/mozilla-os2",
     "bwp/SeleniumWebDriver",
     "ozten/native-persona-desktop-workspace",
     "yinjun/AppManager",
@@ -59,8 +59,7 @@
     "ayopa/sigma-snapshot",
     "Liuweifan888/HYTEditor",
     "marcofreda527/jb412gecko",
-    "amaurial/mininet",
-    "amaurial/mininet",
+    "nemomobile-packages/mozilla-central",
     "memorais/TC2_impl",
     "thomastsai/gecko",
     "escapewindow/test-beagle",
@@ -68,12 +67,13 @@
     "genesi/firefox",
     "ayopa/sigma-snapshot",
     "txemagon/firefox-symlinks",
+    "nemomobile-packages/mozilla-central",
     "Liuweifan888/HYTEditor",
     "marcofreda527/jb412gecko",
     "hwine/test-mmc",
     "mozilla/releases-mozilla-central",
-    "nemomobile-packages/mozilla-central",
     "hwine/test-mc-ma-cvs",
+    "nemomobile-packages/mozilla-central",
     "mozilla/mozilla-central",
     "mozilla/releases-mozilla-aurora",
     "mozilla/releases-mozilla-release",
@@ -89,6 +89,6 @@
     "agx/icedove",
     "neonux/mozilla-all",
     "ehsan/test-cvs-mc",
-    "tijuca/icedove"
+    "Lukasa/blog-posts"
   ]
 }
