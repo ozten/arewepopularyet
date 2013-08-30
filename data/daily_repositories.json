@@ -3034,5 +3034,54 @@
                 "wcdolphin/ohack-search"
             ]
         }
+    },
+    "2013-08-30": {
+        "idps": {
+            "adopters": [],
+            "defectors": []
+        },
+        "websites": {
+            "adopters": [
+                "Gratheon/devclub",
+                "SteamedPears/Code-Review",
+                "alexspeller/emberwang",
+                "arathunku/yamb",
+                "blister75/phone2home",
+                "chrisGoad/prototypejungle",
+                "cthulhuology/perlsona",
+                "fiatjaf/ideacraft",
+                "gordyf/GoPersonaDemo",
+                "gregmoser/cfpersona",
+                "iriscouch/browserid_couchdb",
+                "marienfressinaud/Apprentidate",
+                "mghayes/blog",
+                "mitasych/naholste",
+                "mozilla/id-specs",
+                "piyushbansal/yhack13",
+                "sanderdatema/discourse_vps",
+                "sarenji/battletower",
+                "sch1zo/minimalistic-fitness-tracker",
+                "shanselman/AspNetPersonaId",
+                "sirishkumar/nodejs"
+            ],
+            "defectors": [
+                "Proxiweb/PersonaBundle",
+                "SubDC/ISS",
+                "Tarrask/PhotoFlux",
+                "ednapiranha/eye",
+                "garbados/flask-browserid",
+                "markomarkovic/cakephp-plugin-persona",
+                "mozilla/fireplace",
+                "mozillavenezuela/mozillavenezuela.org",
+                "nooodle/noodletalk",
+                "pathikrit/nemplate",
+                "ryan-frankel/nerdmash",
+                "sankark/OrionClient",
+                "sarveshgpt1991/mysite",
+                "stevenvergenz/dfrpg-toonstore",
+                "syst3mw0rm/hyperkitty",
+                "xl19/mage_live"
+            ]
+        }
     }
 }
