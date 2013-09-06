@@ -19,7 +19,7 @@ function buildSortedJson(jsn) {
 
         jsn.sort();
         // We could sort this bad boy...
-        return jsn
+        return jsn;
     } else if (typeof jsn === 'object') {
 
         var sorted = {};
