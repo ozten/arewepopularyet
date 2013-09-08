@@ -256,5 +256,11 @@
         "facebook": 73496,
         "idproviders": 138,
         "websites": 1175
+    },
+    "2013-09-08": {
+        "baseline": 171249971,
+        "facebook": 73524,
+        "idproviders": 138,
+        "websites": 1178
     }
 }

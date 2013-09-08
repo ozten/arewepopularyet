@@ -3430,5 +3430,46 @@
                 "trungnh/blanco"
             ]
         }
+    },
+    "2013-09-08": {
+        "idps": {
+            "adopters": [],
+            "defectors": []
+        },
+        "websites": {
+            "adopters": [
+                "IOC/mahara",
+                "clindsay107/noprogress",
+                "downthemall/website",
+                "ednapiranha/generaltoast-multi",
+                "goakley/centivize",
+                "grimwire/local",
+                "mattbasta/fireplace",
+                "mozilla/123done",
+                "peecky/yandere-trace",
+                "sanchitbareja/fratevents",
+                "sankark/OrionClient",
+                "sarveshgpt1991/mysite",
+                "stadja/newblog",
+                "stephenheron/laravel-persona",
+                "timoxley/persona",
+                "trungnh/blanco",
+                "yourcelf/intertwinkles"
+            ],
+            "defectors": [
+                "Armen138/rts13k",
+                "LukeCarrier/mahara",
+                "ShareLex/forum",
+                "ccarruitero/persona-ruby",
+                "ciaranj/connect-auth",
+                "freeserver/readerss",
+                "kumar303/inapp-pay-test",
+                "orlandotech/forum",
+                "testuser1/laughing-archer",
+                "wfwalker/gitcheegumee",
+                "workhere-io/personaexamples",
+                "xl19/mage_live"
+            ]
+        }
     }
 }
