@@ -3471,5 +3471,56 @@
                 "xl19/mage_live"
             ]
         }
+    },
+    "2013-09-09": {
+        "idps": {
+            "adopters": [],
+            "defectors": []
+        },
+        "websites": {
+            "adopters": [
+                "ShareLex/forum",
+                "ccarruitero/persona-ruby",
+                "ciaranj/connect-auth",
+                "dataupco/server-nodejs",
+                "den-chi/denchi",
+                "freeserver/readerss",
+                "kumar303/inapp-pay-test",
+                "stevenvergenz/dfrpg-toonstore",
+                "taiwanlennon/flask-master",
+                "varikin/zen",
+                "wfwalker/gitcheegumee",
+                "xl19/mage_live"
+            ],
+            "defectors": [
+                "Logrythmik/docroc.co",
+                "PoorlyWritten/django-mailbot",
+                "Sampa/Bootstrap-blog-demo-multi-login",
+                "albanlv/forum",
+                "asimihsan/djangokata",
+                "chilts/jquery.persona-assistant.js",
+                "darobin/express-browserid",
+                "fiatjaf/ideacraft",
+                "fmarier/whereintheworld",
+                "lalcmellkmal/doushio",
+                "mattbasta/fireplace",
+                "meatspaces/parallax",
+                "mghayes/blog",
+                "mghayes/shamrock",
+                "mozilla/123done",
+                "mozilla/marketplay",
+                "omikronuk/html5_authoring",
+                "pishen/vocaradio",
+                "piyushbansal/yhack13",
+                "ringmaster/pack32",
+                "sankark/OrionClient",
+                "syst3mw0rm/hyperkitty",
+                "thebuggenie/thebuggenie",
+                "thinkphp/browserID",
+                "web64/ci64",
+                "xose/gwt-persona",
+                "yourcelf/intertwinkles"
+            ]
+        }
     }
 }
