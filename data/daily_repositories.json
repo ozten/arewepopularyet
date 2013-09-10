@@ -3522,5 +3522,53 @@
                 "yourcelf/intertwinkles"
             ]
         }
+    },
+    "2013-09-10": {
+        "idps": {
+            "adopters": [],
+            "defectors": []
+        },
+        "websites": {
+            "adopters": [
+                "Armen138/rts13k",
+                "Logrythmik/docroc.co",
+                "Sampa/Bootstrap-blog-demo-multi-login",
+                "albanlv/forum",
+                "bmatsuo/mtrack",
+                "chilts/jquery.persona-assistant.js",
+                "fiatjaf/ideacraft",
+                "fmarier/whereintheworld",
+                "lalcmellkmal/doushio",
+                "meatspaces/parallax",
+                "mghayes/shamrock",
+                "mozilla/123done",
+                "mozilla/marketplay",
+                "omikronuk/html5_authoring",
+                "orlandotech/forum",
+                "sankark/OrionClient",
+                "syst3mw0rm/hyperkitty",
+                "thinkphp/browserID",
+                "workhere-io/personaexamples",
+                "yourcelf/intertwinkles"
+            ],
+            "defectors": [
+                "braddunbar/batesburg-leesville",
+                "codeforboston/brigade_website",
+                "dataupco/server-nodejs",
+                "deian/lbh",
+                "den-chi/denchi",
+                "ednapiranha/lexicrypt",
+                "elevate-festival/neokarto-party",
+                "kumar303/bazuga",
+                "kylef/kylefuller.co.uk",
+                "mitsuhiko/flask",
+                "mjohnst/konnate",
+                "rlr/standup",
+                "ryanseys/gallop",
+                "scholarslab/prism",
+                "unsay/vicini",
+                "wikilife-org/datadonor"
+            ]
+        }
     }
 }
