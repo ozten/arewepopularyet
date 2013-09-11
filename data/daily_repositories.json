@@ -3570,5 +3570,52 @@
                 "wikilife-org/datadonor"
             ]
         }
+    },
+    "2013-09-11": {
+        "idps": {
+            "adopters": [],
+            "defectors": []
+        },
+        "websites": {
+            "adopters": [
+                "asimihsan/djangokata",
+                "braddunbar/batesburg-leesville",
+                "darobin/express-browserid",
+                "dataupco/server-nodejs",
+                "deian/lbh",
+                "ednapiranha/lexicrypt",
+                "kumar303/bazuga",
+                "kylef/kylefuller.co.uk",
+                "mghayes/blog",
+                "mitsuhiko/flask",
+                "pishen/vocaradio",
+                "piyushbansal/yhack13",
+                "rlr/standup",
+                "rren88/django_tutorial",
+                "scholarslab/prism",
+                "thebuggenie/thebuggenie",
+                "unsay/vicini",
+                "web64/ci64"
+            ],
+            "defectors": [
+                "albanlv/forum",
+                "berekuk/questhub",
+                "bostaunieux/fitbox",
+                "clindsay107/noprogress",
+                "fmarier/whereintheworld",
+                "hyperkitty/hyperkitty",
+                "jsla/js-la-jobs",
+                "leafstorm/0x10challenges",
+                "orlandotech/forum",
+                "oscarfroberg/browserid-webpy",
+                "ozten/innercircle",
+                "ozten/roomr",
+                "sarveshgpt1991/mysite",
+                "simonwex/popcornbrowser",
+                "sordina/RSSHit",
+                "webnotes/treemapper",
+                "yinjun/AppManager"
+            ]
+        }
     }
 }
